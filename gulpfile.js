@@ -2,7 +2,7 @@
  * @Author: 焦江倩 
  * @Date: 2018-12-03 19:16:26 
  * @Last Modified by: 焦江倩
- * @Last Modified time: 2018-12-03 23:11:59
+ * @Last Modified time: 2018-12-03 23:13:32
  */
 
 var gulp = require('gulp');
@@ -67,3 +67,5 @@ gulp.task('bUglify', function() {
         .pipe(uglify())
         .pipe(gulp.dest('./src/minjs'))
 })
+
+gulp.task('default', gulp.series('scss', 'bUglify', 'server', 'watch'));
