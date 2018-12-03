@@ -2,7 +2,7 @@
  * @Author: 焦江倩 
  * @Date: 2018-12-03 19:16:26 
  * @Last Modified by: 焦江倩
- * @Last Modified time: 2018-12-03 23:13:32
+ * @Last Modified time: 2018-12-03 23:29:25
  */
 
 var gulp = require('gulp');
@@ -68,4 +68,9 @@ gulp.task('bUglify', function() {
         .pipe(gulp.dest('./src/minjs'))
 })
 
-gulp.task('default', gulp.series('scss', 'bUglify', 'server', 'watch'));
+gulp.task('copyImg', function() {
+    return gulp.src('./src/img/*.png')
+        .pipe(gulp.dest('./src/copyImg'))
+})
+
+gulp.task('default', gulp.series('scss', 'bUglify', 'copyImg', 'server', 'watch'));
