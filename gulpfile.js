@@ -2,7 +2,7 @@
  * @Author: 焦江倩 
  * @Date: 2018-12-03 19:16:26 
  * @Last Modified by: 焦江倩
- * @Last Modified time: 2018-12-03 23:08:19
+ * @Last Modified time: 2018-12-03 23:11:59
  */
 
 var gulp = require('gulp');
@@ -58,4 +58,12 @@ gulp.task('server', function() {
                 res.end(state);
             }
         }))
+})
+
+// 压缩 js
+gulp.task('bUglify', function() {
+    return gulp.src('./src/js/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./src/minjs'))
 })
