@@ -2,7 +2,7 @@
  * @Author: 焦江倩 
  * @Date: 2018-12-03 19:16:26 
  * @Last Modified by: 焦江倩
- * @Last Modified time: 2018-12-03 23:06:07
+ * @Last Modified time: 2018-12-03 23:08:19
  */
 
 var gulp = require('gulp');
@@ -35,4 +35,27 @@ gulp.task('scss', function() {
 gulp.task('watch', function() {
     gulp.watch('./src/scss/*.scss', gulp.series('scss'))
     gulp.watch('./src/js/**/*.js', gulp.series('bUglify'))
+})
+
+// 起服务
+gulp.task('server', function() {
+    return gulp.src('src')
+        .pipe(server({
+            port: 9999,
+            open: true,
+            livereload: true,
+            middleware: function(req, res, next) {
+                var pathname = url.parse(req.url).pathname;
+                console.log(pathname);
+
+                if (pathname === "/favicon.ico") {
+                    res.end('');
+                    return;
+                }
+
+                pathname = pathname === "/" ? 'index.html' : pathname;
+                var state = fs.readFileSync(path.join(__dirname, 'src', pathname));
+                res.end(state);
+            }
+        }))
 })
