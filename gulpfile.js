@@ -2,7 +2,7 @@
  * @Author: 焦江倩 
  * @Date: 2018-12-03 19:16:26 
  * @Last Modified by: 焦江倩
- * @Last Modified time: 2018-12-03 23:04:14
+ * @Last Modified time: 2018-12-03 23:06:07
  */
 
 var gulp = require('gulp');
@@ -29,4 +29,10 @@ gulp.task('scss', function() {
         .pipe(sass())
         .pipe(minCss())
         .pipe(gulp.dest('./src/css'))
+})
+
+// 监听 css,js
+gulp.task('watch', function() {
+    gulp.watch('./src/scss/*.scss', gulp.series('scss'))
+    gulp.watch('./src/js/**/*.js', gulp.series('bUglify'))
 })
