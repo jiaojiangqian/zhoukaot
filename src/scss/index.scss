@@ -1,0 +1,94 @@
+// @import url('conmon.css');
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-shrink: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    height: .5rem;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        li {
+            font-size: .16rem;
+        }
+    }
+}
+
+section {
+    width: 100%;
+    overflow: hidden;
+    flex: 1;
+    .con-swiper {
+        width: 100%;
+        .swiper-slide {
+            width: 90%;
+            height: 100%;
+            padding: .1rem;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .con-list {
+        width: 100%;
+        background: #fff;
+        h3 {
+            height: .4rem;
+            line-height: .4rem;
+            font-size: .16rem;
+            text-indent: .1rem;
+        }
+        .list {
+            width: 100%;
+            overflow: hidden;
+            dl {
+                width: 100%;
+                display: flex;
+                margin: .1rem;
+                background: rgb(239, 239, 247);
+                dt {
+                    width: 30%;
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                dd {
+                    width: 60%;
+                    font-size: .16rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: .5rem;
+    display: flex;
+    background: green;
+}
